@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+    <h2>ĐĂNG NHẬP</h2>
+
+    @* Hiển thị thông báo kết quả sau khi Submit *@
+    @if (ViewBag.Message != null)
+    {
+        <div style="padding: 10px; margin-bottom: 15px; color: white; background-color: @(ViewBag.IsSuccess ? "green" : "red");">
+            @ViewBag.Message
+        </div>
+    }
+
+    <form action="/Account/Login" method="post">
+        <div style="margin-bottom: 15px;">
+            <label for="username">Username:</label><br />
+            <input type="text" id="username" name="username" style="width: 100%; padding: 8px;" required />
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="password">Password:</label><br />
+            <input type="password" id="password" name="password" style="width: 100%; padding: 8px;" required />
+        </div>
+
+        <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+            Login
+        </button> 
+    </form>
+</div>
